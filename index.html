@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>快速反应</title>
+  <link rel="stylesheet" href="css/weui.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/vue.min.js"></script>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <p>{{num}}</p>
+    <p>计时：{{time}}</p>
+    <div>
+        <a href="javascript:;" 
+          class="weui-btn weui-btn_primary"
+          @click='randomNumber'>开始</a>
+        <a href="javascript:;" 
+          class="weui-btn weui-btn_primary"
+          @click='reset'>结束</a>
+    </div>
+    
+  </div>
+  <script src="js/index.js"></script>
+</body>
+</html>
