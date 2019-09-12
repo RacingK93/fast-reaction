@@ -8,17 +8,24 @@ new Vue({
     h: 0, // 时
     m: 0, // 分
     s: 0, // 秒
-    total_s: 0 // 一共秒数
+    total_s: 0, // 一共秒数
+    isStart: true, // 是否开始
+    err: '' // 错误信息
   },
   methods: {
     /**
      * @description 打乱字符串
      */
     randomNumber() {
-      this.arrNum = this.randArr(this.arrNum)
-      this.num = this.arrNum.join('')
-      this.time = "00:00:00"
-      this.startTime()
+      if(this.isStart){
+        this.isStart = false
+        this.arrNum = this.randArr(this.arrNum)
+        this.num = this.arrNum.join('')
+        this.time = "00:00:00"
+        this.startTime()
+      }else{
+        this.err = '还未结束哦！'
+      }
     },
     /**
      * @description 打乱数组
@@ -78,10 +85,14 @@ new Vue({
      */
     reset() {
       clearInterval(this.timer);
+      this.timer = 0
+      console.log(this.timer)
       this.h = 0
       this.m = 0
       this.s = 0
       this.ms = 0
+      this.isStart = true
+      this.err = ''
     }
   }
 })
